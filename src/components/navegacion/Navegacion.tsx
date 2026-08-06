@@ -24,7 +24,7 @@ function Navegacion() {
         <h1 className="text-lg font-bold text-white font-serif">Organizador</h1>
         <button
           onClick={toggleMenu}
-          className="p-2 text-neutral-300 hover:text-white rounded-md hover:bg-neutral-700 transition-colors"
+          className="p-2 text-neutral-300 hover:text-white rounded-xs hover:bg-neutral-700 transition-colors"
           aria-label="Abrir menú"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -60,7 +60,7 @@ function Navegacion() {
                 key={proyecto.id}
                 to={`/inicio/${proyecto.link}`}
                 onClick={() => setIsOpen(false)}
-                className="w-full p-2.5 rounded-md text-sm text-neutral-300 hover:bg-violet-600/20 hover:text-violet-300 transition-colors font-medium"
+                className="w-full p-2.5 rounded-xs text-sm text-neutral-300 hover:bg-violet-600/20 hover:text-violet-300 transition-colors font-medium"
               >
                 {proyecto.nombre}
               </Link>
@@ -84,7 +84,7 @@ function Navegacion() {
           </div>
 
           {/* Botón Cerrar Sesión */}
-          <Button className="w-full py-2 px-4 bg-neutral-700/80 hover:bg-red-500/80 text-neutral-200 hover:text-white font-medium rounded-md transition-colors text-sm text-center">
+          <Button className="w-full py-2 px-4 bg-neutral-700/80 hover:bg-red-500/80 text-neutral-200 hover:text-white font-medium rounded-xs transition-colors text-sm text-center">
             Cerrar sesión
           </Button>
         </div>

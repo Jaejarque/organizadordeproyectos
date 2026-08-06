@@ -48,7 +48,7 @@ function Proyectos() {
           <Link
             to={`/inicio/${proyecto.link}`}
             key={proyecto.id}
-            className="group flex flex-col justify-between bg-neutral-800 p-5 rounded-lg border border-neutral-700/60 hover:border-violet-500/80 hover:bg-neutral-800/90 transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-violet-500/5"
+            className="group flex flex-col justify-between bg-neutral-800 p-5 rounded-xs border border-neutral-700/60 hover:border-violet-500/80 hover:bg-neutral-800/90 transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-violet-500/5"
           >
             <div>
               <div className="flex items-center justify-between mb-2">
