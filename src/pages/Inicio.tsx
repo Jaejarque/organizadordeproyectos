@@ -1,11 +1,17 @@
 import React from 'react'
 import Navegacion from '../components/navegacion/Navegacion';
+import Proyectos from '../components/proyectos/Proyectos';
 
 function Inicio() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-neutral-800 text-neutral-100">
+    <div className="min-h-screen bg-neutral-900 text-neutral-100 flex flex-col md:flex-row w-full">
       <Navegacion />
-    </main>
+      
+      {/* Área de contenido principal con offset para el sidebar en desktop */}
+      <main className="flex-1 w-full md:pl-64 pt-14 md:pt-0 transition-all">
+        <Proyectos />
+      </main>
+    </div>
   )
 }
 
