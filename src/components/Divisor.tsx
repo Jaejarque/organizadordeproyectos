@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Divisor() {
   return (
     <hr className="border-neutral-700" />

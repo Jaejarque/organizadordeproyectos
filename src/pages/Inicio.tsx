@@ -1,4 +1,3 @@
-import React from 'react'
 import Navegacion from '../components/navegacion/Navegacion';
 import Proyectos from '../components/proyectos/Proyectos';
 

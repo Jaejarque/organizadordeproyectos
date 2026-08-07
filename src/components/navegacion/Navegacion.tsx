@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Button from '../Button'
 import { Link } from 'react-router-dom'
 import { Plus, User, Menu, X } from 'lucide-react'
 import Divisor from '../Divisor';
+import ModalNuevoAmbiente from './ModalNuevoAmbiente';
 
 const proyectos = [
   { id: 1, nombre: "Proyecto 1", link: "proyecto-1" },
@@ -14,17 +15,20 @@ const proyectos = [
 
 function Navegacion() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const toggleMenu = () => setIsOpen(!isOpen)
+  const openModal = () => setIsModalOpen(true)
+  const closeModal = () => setIsModalOpen(false)
 
   return (
     <>
-      {/* Navbar Superior en Móvil (Botón Hamburguesa) */}
+{/* Navbar Superior en Móvil (Botón Hamburguesa) */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-14 bg-neutral-800 border-b border-neutral-700/60 flex items-center justify-between px-4 z-40">
-        <h1 className="text-lg font-bold text-white font-serif">Organizador</h1>
+        <h1 className="text-lg font-bold text-neutral-100 font-serif">Organizador</h1>
         <button
           onClick={toggleMenu}
-          className="p-2 text-neutral-300 hover:text-white rounded-xs hover:bg-neutral-700 transition-colors"
+          className="p-2 text-neutral-300 hover:text-neutral-100 rounded-xs hover:bg-neutral-700 transition-colors"
           aria-label="Abrir menú"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -39,16 +43,16 @@ function Navegacion() {
         />
       )}
 
-      {/* Sidebar (Fijo en desktop, desplegable en mobile) */}
+{/* Sidebar (Fijo en desktop, desplegable en mobile) */}
       <nav
-        className={`fixed top-0 left-0 bg-neutral-800 p-4 h-screen w-64 flex flex-col justify-between gap-4 z-50 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 bg-neutral-800 border-r border-neutral-700/60 p-4 h-screen w-64 flex flex-col justify-between gap-4 z-50 transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         {/* Sección Superior: Título y Lista de proyectos */}
         <div className="flex flex-col gap-4 w-full overflow-y-auto flex-1">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-white font-serif text-center w-full md:text-left">
+            <h1 className="text-2xl font-bold text-neutral-100 font-serif text-center w-full md:text-left">
               Organizador de proyectos
             </h1>
           </div>
@@ -70,7 +74,7 @@ function Navegacion() {
 
         {/* Sección Inferior: Acciones y Perfil */}
         <div className="w-full pt-2 flex flex-col gap-3">
-          <Button><Plus className="w-4 h-4" />Nuevo ambiente</Button>
+          <Button onClick={openModal}><Plus className="w-4 h-4" />Nuevo ambiente</Button>
           <Divisor />
           
           {/* Usuario */}
@@ -83,12 +87,13 @@ function Navegacion() {
             </span>
           </div>
 
-          {/* Botón Cerrar Sesión */}
-          <Button className="w-full py-2 px-4 bg-neutral-700/80 hover:bg-red-500/80 text-neutral-200 hover:text-white font-medium rounded-xs transition-colors text-sm text-center">
+{/* Botón Cerrar Sesión */}
+          <Button className="w-full py-2.5 px-3 bg-neutral-700/80 hover:bg-red-500/80 text-neutral-200 hover:text-white font-medium rounded-xs transition-colors text-sm">
             Cerrar sesión
           </Button>
         </div>
       </nav>
+      <ModalNuevoAmbiente isOpen={isModalOpen} onClose={closeModal} />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { MoveRight } from "lucide-react"
 
 const proyectos = [
   {
@@ -36,9 +37,9 @@ const proyectos = [
 function Proyectos() {
   return (
     <div className="p-6 max-w-7xl mx-auto">
-      {/* Encabezado opcional para contextualizar */}
+{/* Encabezado opcional para contextualizar */}
       <header className="mb-6">
-        <h2 className="text-2xl font-bold text-neutral-100">Tus Proyectos</h2>
+        <h2 className="text-2xl font-bold text-neutral-100 font-serif">Tus Proyectos</h2>
         <p className="text-sm text-neutral-400">Selecciona un proyecto para comenzar a trabajar</p>
       </header>
 
@@ -57,7 +58,7 @@ function Proyectos() {
                 </h3>
                 {/* Flecha indicadora al hacer hover */}
                 <span className="text-neutral-500 group-hover:text-violet-400 group-hover:translate-x-1 transition-all">
-                  →
+                  <MoveRight />
                 </span>
               </div>
               <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
